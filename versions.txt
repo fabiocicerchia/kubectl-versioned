@@ -1,0 +1,5 @@
+# One tag is published per line. Keep the currently supported Kubernetes
+# minor releases (latest three) plus the most recent patch of each.
+1.33.2
+1.32.6
+1.31.10

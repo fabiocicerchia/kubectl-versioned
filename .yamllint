@@ -1,0 +1,7 @@
+# Relaxed preset (matches the CI scanner); SHA-pinned `uses:` lines run long,
+# so bump the line-length ceiling.
+extends: relaxed
+
+rules:
+  line-length:
+    max: 120
