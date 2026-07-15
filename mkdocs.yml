@@ -1,0 +1,15 @@
+site_name: kubectl-versioned
+site_url: https://fabiocicerchia.github.io/kubectl-versioned
+site_description: Every supported Kubernetes version as a tiny, distroless, multi-arch Docker image.
+repo_url: https://github.com/fabiocicerchia/kubectl-versioned
+repo_name: fabiocicerchia/kubectl-versioned
+
+theme:
+  name: material
+
+nav:
+  - Home: README.md
+  - Getting Started: getting-started.md
+  - Architecture: architecture.md
+
+docs_dir: docs
