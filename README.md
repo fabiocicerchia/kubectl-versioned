@@ -2,8 +2,9 @@
 
 [![CI](https://github.com/fabiocicerchia/kubectl-versioned/actions/workflows/ci.yml/badge.svg)](https://github.com/fabiocicerchia/kubectl-versioned/actions/workflows/ci.yml)
 [![Security](https://github.com/fabiocicerchia/kubectl-versioned/actions/workflows/security.yml/badge.svg)](https://github.com/fabiocicerchia/kubectl-versioned/actions/workflows/security.yml)
-[![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/fabiocicerchia/kubectl-versioned/badge)](https://securityscorecards.dev/viewer/?uri=github.com/fabiocicerchia/kubectl-versioned)
 [![License: Apache 2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
+[![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/fabiocicerchia/kubectl-versioned/badge)](https://securityscorecards.dev/viewer/?uri=github.com/fabiocicerchia/kubectl-versioned)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Ffabiocicerchia%2Fkubectl-versioned.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Ffabiocicerchia%2Fkubectl-versioned?ref=badge_shield)
 
 Plain `kubectl`, in **every supported Kubernetes version**, as multi-arch,
 distroless, tiny Docker images. One version = one tag. Nothing else inside.
@@ -18,6 +19,24 @@ trustworthy, versioned kubectl image. This is that image.
 - **Tiny & safe**: built `FROM gcr.io/distroless/static`, runs as non-root
   (UID 65532), no shell, no package manager, nothing to CVE-scan except kubectl.
 - **Multi-arch**: `linux/amd64` and `linux/arm64` manifests.
+
+## Install
+
+```sh
+docker pull ghcr.io/fabiocicerchia/kubectl-versioned:latest
+```
+
+Pin a specific version (recommended):
+
+```sh
+docker pull ghcr.io/fabiocicerchia/kubectl-versioned:1.33.2
+```
+
+Or use the install script:
+
+```sh
+curl -fsSL https://raw.githubusercontent.com/fabiocicerchia/kubectl-versioned/main/install.sh | bash
+```
 
 ## Usage
 
