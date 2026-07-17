@@ -6,7 +6,7 @@ ARG KUBECTL_VERSION
 ARG TARGETOS=linux
 ARG TARGETARCH=amd64
 # ponytail: apk versions pinned to satisfy scanners; bump when alpine base bumps.
-RUN apk add --no-cache curl=8.14.1-r3 ca-certificates=20260611-r0
+RUN apk add --no-cache curl=8.21.0-r0 ca-certificates=20260611-r0
 SHELL ["/bin/ash", "-o", "pipefail", "-c"]
 RUN curl -fsSLo /kubectl "https://dl.k8s.io/release/v${KUBECTL_VERSION}/bin/${TARGETOS}/${TARGETARCH}/kubectl" \
  && curl -fsSLo /kubectl.sha256 "https://dl.k8s.io/release/v${KUBECTL_VERSION}/bin/${TARGETOS}/${TARGETARCH}/kubectl.sha256" \
