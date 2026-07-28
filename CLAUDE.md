@@ -15,8 +15,8 @@ changes on `main`.
 ## Commands
 
 ```sh
-# build:  make build VERSION=1.33.2   # single-arch local image
-# test:   make test  VERSION=1.33.2   # build + smoke test (./test.sh)
+# build:  make build VERSION=1.34.10   # single-arch local image
+# test:   make test  VERSION=1.34.10   # build + smoke test (./test.sh)
 # lint:   make lint                    # hadolint + shellcheck
 # run:    docker run --rm IMAGE:TAG version --client
 ```
