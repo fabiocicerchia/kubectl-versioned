@@ -13,7 +13,7 @@ spec:
       restartPolicy: Never
       containers:
         - name: kubectl
-          image: ghcr.io/fabiocicerchia/kubectl-versioned:1.33.2
+          image: ghcr.io/fabiocicerchia/kubectl-versioned:1.34.10
           args: ["get", "pods", "-A"]
 ```
 
@@ -21,5 +21,5 @@ spec:
 
 ```sh
 docker run --rm -v ~/.kube:/home/nonroot/.kube:ro \
-  ghcr.io/fabiocicerchia/kubectl-versioned:1.33.2 version
+  ghcr.io/fabiocicerchia/kubectl-versioned:1.34.10 version
 ```

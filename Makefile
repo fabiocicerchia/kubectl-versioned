@@ -1,5 +1,5 @@
 IMAGE     ?= fabiocicerchia/kubectl-versioned
-VERSION   ?= 1.33.2
+VERSION   ?= 1.34.10
 PLATFORMS ?= linux/amd64,linux/arm64
 
 .PHONY: help setup build lint test push release

@@ -14,7 +14,7 @@ trustworthy, versioned kubectl image. This is that image.
 
 ## Why
 
-- **Version-pinned**: tag `1.33.2` contains kubectl `v1.33.2`, verified against
+- **Version-pinned**: tag `1.34.10` contains kubectl `v1.34.10`, verified against
   the official `dl.k8s.io` SHA-256 checksum at build time.
 - **Tiny & safe**: built `FROM gcr.io/distroless/static`, runs as non-root
   (UID 65532), no shell, no package manager, nothing to CVE-scan except kubectl.
@@ -29,7 +29,7 @@ docker pull ghcr.io/fabiocicerchia/kubectl-versioned:latest
 Pin a specific version (recommended):
 
 ```sh
-docker pull ghcr.io/fabiocicerchia/kubectl-versioned:1.33.2
+docker pull ghcr.io/fabiocicerchia/kubectl-versioned:1.34.10
 ```
 
 Or use the install script:
@@ -42,7 +42,7 @@ curl -fsSL https://raw.githubusercontent.com/fabiocicerchia/kubectl-versioned/ma
 
 ```sh
 docker run --rm -v ~/.kube:/home/nonroot/.kube:ro \
-  fabiocicerchia/kubectl-versioned:1.33.2 get pods -A
+  fabiocicerchia/kubectl-versioned:1.34.10 get pods -A
 ```
 
 As a Kubernetes Job step:
@@ -50,7 +50,7 @@ As a Kubernetes Job step:
 ```yaml
 containers:
   - name: kubectl
-    image: fabiocicerchia/kubectl-versioned:1.33.2
+    image: fabiocicerchia/kubectl-versioned:1.34.10
     args: ["rollout", "restart", "deployment/my-app"]
 ```
 
@@ -68,7 +68,7 @@ the latest patch release of the three most recent minors, plus `latest`.
 | `make test`   | Smoke test: image reports the expected version  |
 | `make release`| Multi-arch buildx build & push                  |
 
-Build a different version: `make build VERSION=1.32.6`.
+Build a different version: `make build VERSION=1.32.13`.
 
 ## Contributing
 

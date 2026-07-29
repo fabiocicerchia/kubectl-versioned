@@ -1,5 +1,5 @@
 # kubectl-versioned — plain kubectl, every supported version as a tag, multi-arch, tiny.
-ARG KUBECTL_VERSION=1.33.2
+ARG KUBECTL_VERSION=1.34.10
 
 FROM alpine:3.24 AS fetch
 ARG KUBECTL_VERSION

@@ -10,14 +10,14 @@
 Pull the image for your kubectl version:
 
 ```sh
-docker pull ghcr.io/fabiocicerchia/kubectl-versioned:1.33.2
+docker pull ghcr.io/fabiocicerchia/kubectl-versioned:1.34.10
 ```
 
 Run it against your cluster:
 
 ```sh
 docker run --rm -v ~/.kube:/home/nonroot/.kube:ro \
-  ghcr.io/fabiocicerchia/kubectl-versioned:1.33.2 get pods -A
+  ghcr.io/fabiocicerchia/kubectl-versioned:1.34.10 get pods -A
 ```
 
 ## Available Tags
