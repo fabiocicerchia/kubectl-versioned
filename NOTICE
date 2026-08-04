@@ -1,0 +1,30 @@
+kubectl-versioned
+Copyright 2026 Fabio Cicerchia
+
+This product includes software developed by
+Fabio Cicerchia (https://github.com/fabiocicerchia).
+
+The Apache-2.0 license on this repository covers the packaging only. The
+published container image contains one third-party binary, redistributed
+under its own license:
+
+  kubectl  Apache-2.0  https://github.com/kubernetes/kubernetes
+
+The exact version is the image tag, and is recorded in the image's
+org.opencontainers.image.version label. The binary is downloaded from
+https://dl.k8s.io/release/v<version>/bin/linux/<arch>/kubectl and verified
+against the upstream .sha256 at build time.
+
+--------------------------------------------------------------------
+Kubernetes (kubectl)
+Copyright 2014-2026 The Kubernetes Authors.
+Licensed under the Apache License, Version 2.0.
+https://github.com/kubernetes/kubernetes/blob/master/LICENSE
+Upstream NOTICE: https://github.com/kubernetes/kubernetes/blob/master/NOTICE
+--------------------------------------------------------------------
+
+The base image is gcr.io/distroless/static-debian12:nonroot, published by
+the Distroless project (Apache-2.0, https://github.com/GoogleContainerTools/distroless)
+and derived from Debian. It contains ca-certificates, /etc/passwd and
+timezone data only; no shell and no package manager. Debian publishes the
+corresponding source at https://sources.debian.org/.
