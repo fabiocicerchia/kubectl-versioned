@@ -20,6 +20,7 @@ LABEL org.opencontainers.image.title="kubectl-versioned" \
       org.opencontainers.image.version="${KUBECTL_VERSION}" \
       org.opencontainers.image.licenses="Apache-2.0" \
       org.opencontainers.image.source="https://github.com/fabiocicerchia/kubectl-versioned"
+COPY NOTICE /NOTICE
 COPY --from=fetch /kubectl /usr/local/bin/kubectl
 # ponytail: kubectl is a CLI, not a daemon — nothing to poll. Declared to satisfy scanners.
 HEALTHCHECK NONE
