@@ -70,6 +70,10 @@ the latest patch release of the three most recent minors, plus `latest`.
 
 Build a different version: `make build VERSION=1.32.13`.
 
+## Documentation
+
+Full docs live in [`docs/`](docs/). Runnable examples live in [`examples/`](examples/).
+
 ## Contributing
 
 See [CONTRIBUTING.md](CONTRIBUTING.md). By participating you agree to the
