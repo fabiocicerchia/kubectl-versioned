@@ -1,8 +1,4 @@
-# kubectl-versioned Documentation
+# Documentation
 
-Full documentation for kubectl-versioned.
-
-## Contents
-
-- [Getting Started](getting-started.md)
-- [Architecture](architecture.md)
+- [Architecture](architecture.md) — high-level design and components.
+- [Getting Started](getting-started.md) — setup, first run and day-to-day use.
