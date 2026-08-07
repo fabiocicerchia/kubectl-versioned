@@ -19,7 +19,30 @@ changes on `main`.
 # test:   make test  VERSION=1.34.10   # build + smoke test (./test.sh)
 # lint:   make lint                    # hadolint + shellcheck
 # run:    docker run --rm IMAGE:TAG version --client
+make help    # Show this help
+make setup   # Install the pre-commit hook
+make build   # Build a single-arch image for VERSION
+make lint    # hadolint the Dockerfile + shellcheck
+make test    # Build + smoke test the image
+make push    # Build + push a single-arch image
+make release # Multi-arch buildx build & push (VERSION + latest)
 ```
+
+## Tooling
+
+Shared config — the GitHub workflows, `.pre-commit-config.yaml`,
+`.editorconfig`, `.hadolint.yaml`, `SECURITY.md` — comes from
+[repo-skeleton](https://github.com/fabiocicerchia/repo-skeleton). Edit it
+there, not here; a local edit is drift and the next sync overwrites it.
+`check-drift.sh` in that repo reports what has diverged.
+
+- `make setup` installs the pre-commit hook, and that is the whole of it.
+  Don't add a `.githooks/` directory: `core.hooksPath` replaces `.git/hooks/`
+  wholesale, so setting it silently stops every pre-commit hook from running.
+- Hooks are pinned by commit SHA with the tag in a trailing comment. A tag can
+  be moved, a SHA cannot.
+- CI runs this same `.pre-commit-config.yaml` through `pre-commit/action`, so
+  what passes locally is what gates the pull request.
 
 ## Conventions
 
