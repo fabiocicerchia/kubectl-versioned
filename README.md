@@ -62,12 +62,12 @@ the latest patch release of the three most recent minors, plus `latest`.
 
 ## Development
 
-| Target        | What it does                                    |
-|---------------|-------------------------------------------------|
-| `make build`  | Build a single-arch image for `VERSION`         |
-| `make lint`   | hadolint the Dockerfile                         |
-| `make test`   | Smoke test: image reports the expected version  |
-| `make release`| Multi-arch buildx build & push                  |
+| Target         | What it does                                   |
+| -------------- | ---------------------------------------------- |
+| `make build`   | Build a single-arch image for `VERSION`        |
+| `make lint`    | hadolint the Dockerfile                        |
+| `make test`    | Smoke test: image reports the expected version |
+| `make release` | Multi-arch buildx build & push                 |
 
 Build a different version: `make build VERSION=1.32.13`.
 
