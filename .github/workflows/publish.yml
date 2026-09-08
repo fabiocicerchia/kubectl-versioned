@@ -4,6 +4,11 @@ name: Publish Images
 # (first line also gets :latest). Runs when versions.txt or the Dockerfile
 # change on main, or on demand. Images go to GitHub Container Registry
 # using the built-in GITHUB_TOKEN — no extra secrets required.
+#
+# Every pushed image is signed with cosign, keyless: the identity is this
+# workflow's OIDC token and the signature lands in the public Rekor log, so
+# there is no private key to rotate, leak or lose. An admission controller or
+# an init container can then refuse anything that was not built here.
 
 on:
   push:
@@ -43,6 +48,7 @@ jobs:
     permissions:
       contents: read
       packages: write
+      id-token: write # keyless cosign signing via OIDC
     strategy:
       fail-fast: false
       matrix:
@@ -77,6 +83,7 @@ jobs:
           echo "tags=$TAGS" >> "$GITHUB_OUTPUT"
 
       - name: Build and push (multi-arch)
+        id: push
         uses: docker/build-push-action@53b7df96c91f9c12dcc8a07bcb9ccacbed38856a  # v7.3.0
         with:
           context: .
@@ -85,3 +92,14 @@ jobs:
           build-args: |
             KUBECTL_VERSION=${{ matrix.version }}
           tags: ${{ steps.tags.outputs.tags }}
+
+      - uses: sigstore/cosign-installer@6f9f17788090df1f26f669e9d70d6ae9567deba6  # v4.1.2
+
+      # By digest, not by tag: signing `:latest` would sign whatever that tag
+      # points at when this step runs, which is not necessarily what was just
+      # built. Every tag in the push shares this digest, so one signature
+      # covers all of them.
+      - name: Sign the image
+        run: cosign sign --yes "$IMAGE@$DIGEST"
+        env:
+          DIGEST: ${{ steps.push.outputs.digest }}

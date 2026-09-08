@@ -60,6 +60,22 @@ containers:
 Published tags track the upstream support window (see `versions.txt`):
 the latest patch release of the three most recent minors, plus `latest`.
 
+## Verifying the image
+
+Every published image is signed with [cosign](https://docs.sigstore.dev/),
+keyless: the identity is the publishing workflow, not a key anybody holds.
+
+```sh
+cosign verify ghcr.io/fabiocicerchia/kubectl-versioned:latest \
+  --certificate-identity-regexp \
+    'https://github.com/fabiocicerchia/kubectl-versioned/.github/workflows/.*' \
+  --certificate-oidc-issuer https://token.actions.githubusercontent.com
+```
+
+`no signatures found` means the tag was published before signing was added, not
+that verification was configured wrongly — an identity or issuer mismatch says
+so explicitly. Re-run the publish workflow for that tag to sign it.
+
 ## Development
 
 Build a different version: `make build VERSION=1.32.13`.
