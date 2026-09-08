@@ -1,4 +1,4 @@
-IMAGE     ?= fabiocicerchia/kubectl-versioned
+IMAGE     ?= ghcr.io/fabiocicerchia/kubectl-versioned
 VERSION   ?= 1.34.10
 PLATFORMS ?= linux/amd64,linux/arm64
 
