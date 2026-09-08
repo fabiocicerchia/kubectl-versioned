@@ -43,7 +43,7 @@ curl -fsSL https://raw.githubusercontent.com/fabiocicerchia/kubectl-versioned/ma
 
 ```sh
 docker run --rm -v ~/.kube:/home/nonroot/.kube:ro \
-  fabiocicerchia/kubectl-versioned:1.34.10 get pods -A
+  ghcr.io/fabiocicerchia/kubectl-versioned:1.34.10 get pods -A
 ```
 
 As a Kubernetes Job step:
@@ -51,7 +51,7 @@ As a Kubernetes Job step:
 ```yaml
 containers:
   - name: kubectl
-    image: fabiocicerchia/kubectl-versioned:1.34.10
+    image: ghcr.io/fabiocicerchia/kubectl-versioned:1.34.10
     args: ["rollout", "restart", "deployment/my-app"]
 ```
 
