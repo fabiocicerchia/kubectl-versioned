@@ -4,6 +4,20 @@ All notable changes to this project are documented here. The format is based
 on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project
 adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.3.0](https://github.com/fabiocicerchia/kubectl-versioned/compare/v0.2.1...v0.3.0) (2026-09-09)
+
+
+### Features
+
+* add the eight-verb repo contract ([#45](https://github.com/fabiocicerchia/kubectl-versioned/issues/45)) ([8f04dcc](https://github.com/fabiocicerchia/kubectl-versioned/commit/8f04dcc191dc3dc27aa4d8cf04f821208599f3c9))
+
+
+### Bug Fixes
+
+* **ci:** pin the editorconfig-checker binary version ([#41](https://github.com/fabiocicerchia/kubectl-versioned/issues/41)) ([9187031](https://github.com/fabiocicerchia/kubectl-versioned/commit/91870317018aa7243704f8b3b7270bd53a12ee65))
+* pull the image from ghcr.io, not Docker Hub ([#47](https://github.com/fabiocicerchia/kubectl-versioned/issues/47)) ([6382cd4](https://github.com/fabiocicerchia/kubectl-versioned/commit/6382cd4a88fa537eee4b94afd194060ed31357a5))
+* sign every published image with cosign ([#53](https://github.com/fabiocicerchia/kubectl-versioned/issues/53)) ([b48d8cd](https://github.com/fabiocicerchia/kubectl-versioned/commit/b48d8cde4001fd341ef012790acfb9fe5ac009ba))
+
 ## [0.2.1](https://github.com/fabiocicerchia/kubectl-versioned/compare/v0.2.0...v0.2.1) (2026-08-29)
 
 ### Bug Fixes
