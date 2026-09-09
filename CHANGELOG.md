@@ -4,6 +4,13 @@ All notable changes to this project are documented here. The format is based
 on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project
 adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.3.1](https://github.com/fabiocicerchia/kubectl-versioned/compare/v0.3.0...v0.3.1) (2026-09-09)
+
+
+### Bug Fixes
+
+* **publish:** sign the Docker Hub ref too, not just GHCR ([#58](https://github.com/fabiocicerchia/kubectl-versioned/issues/58)) ([1654a8a](https://github.com/fabiocicerchia/kubectl-versioned/commit/1654a8aabd6fb74b97e6557ece4349c4fd5e7dee))
+
 ## [0.3.0](https://github.com/fabiocicerchia/kubectl-versioned/compare/v0.2.1...v0.3.0) (2026-09-09)
 
 
