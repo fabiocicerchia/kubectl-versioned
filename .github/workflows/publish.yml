@@ -98,8 +98,12 @@ jobs:
       # By digest, not by tag: signing `:latest` would sign whatever that tag
       # points at when this step runs, which is not necessarily what was just
       # built. Every tag in the push shares this digest, so one signature
-      # covers all of them.
+      # covers all of them — but only within one registry. A signature is
+      # stored as an artifact alongside the image it signs, so the Docker Hub
+      # copy needs its own, even though it is the same digest.
       - name: Sign the image
-        run: cosign sign --yes "$IMAGE@$DIGEST"
         env:
           DIGEST: ${{ steps.push.outputs.digest }}
+        run: |
+          cosign sign --yes "${IMAGE}@${DIGEST}"
+          cosign sign --yes "${DOCKERHUB_IMAGE}@${DIGEST}"
