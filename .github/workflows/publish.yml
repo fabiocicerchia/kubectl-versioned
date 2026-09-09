@@ -18,6 +18,7 @@ permissions:
 
 env:
   IMAGE: ghcr.io/${{ github.repository }}
+  DOCKERHUB_IMAGE: docker.io/${{ github.repository }}
 
 jobs:
   versions:
@@ -59,13 +60,19 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Log in to Docker Hub
+        uses: docker/login-action@dbcb813823bdd20940b903addbd779551569679f  # v4.6.0
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
       - name: Compute tags
         id: tags
         run: |
           LATEST="${{ needs.versions.outputs.latest }}"
-          TAGS="$IMAGE:${{ matrix.version }}"
+          TAGS="$IMAGE:${{ matrix.version }},$DOCKERHUB_IMAGE:${{ matrix.version }}"
           if [ "${{ matrix.version }}" = "$LATEST" ]; then
-            TAGS="$TAGS,$IMAGE:latest"
+            TAGS="$TAGS,$IMAGE:latest,$DOCKERHUB_IMAGE:latest"
           fi
           echo "tags=$TAGS" >> "$GITHUB_OUTPUT"
 
