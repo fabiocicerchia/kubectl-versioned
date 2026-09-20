@@ -4,6 +4,15 @@ All notable changes to this project are documented here. The format is based
 on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project
 adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.3.3](https://github.com/fabiocicerchia/kubectl-versioned/compare/v0.3.2...v0.3.3) (2026-09-20)
+
+
+### Bug Fixes
+
+* **ci:** keep actions: read on the job that uploads sarif ([#75](https://github.com/fabiocicerchia/kubectl-versioned/issues/75)) ([5fedb64](https://github.com/fabiocicerchia/kubectl-versioned/commit/5fedb64524e3f71c5255850dac8f1534a8abd7a0))
+* **docker:** bump ca-certificates pin to 20260909-r0 ([#70](https://github.com/fabiocicerchia/kubectl-versioned/issues/70)) ([cb2389a](https://github.com/fabiocicerchia/kubectl-versioned/commit/cb2389a28755300ee117fcaa817f04da25f1354a))
+* **docker:** bump ca-certificates to the version alpine 3.24 still has ([#72](https://github.com/fabiocicerchia/kubectl-versioned/issues/72)) ([db09a77](https://github.com/fabiocicerchia/kubectl-versioned/commit/db09a77643782b198d90112c4347e93fff913a57))
+
 ## [0.3.2](https://github.com/fabiocicerchia/kubectl-versioned/compare/v0.3.1...v0.3.2) (2026-09-11)
 
 
