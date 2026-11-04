@@ -1,12 +1,12 @@
 # kubectl-versioned — plain kubectl, every supported version as a tag, multi-arch, tiny.
 ARG KUBECTL_VERSION=1.34.10
 
-FROM alpine:3.24@sha256:294b683cb724975bec92580e1e685676bd4b50bda910ddb8c51d4cabeaec77e6 AS fetch
+FROM alpine:3.24@sha256:be2656061b536c1883c4034790e21d0a09c5aaaf51968b89368a3c0371ea2c9a AS fetch
 ARG KUBECTL_VERSION
 ARG TARGETOS=linux
 ARG TARGETARCH=amd64
 # ponytail: apk versions pinned to satisfy scanners; bump when alpine base bumps.
-RUN apk add --no-cache curl=8.22.0-r0 ca-certificates=20261020-r0
+RUN apk add --no-cache curl=8.23.0-r0 ca-certificates=20261020-r0
 SHELL ["/bin/ash", "-o", "pipefail", "-c"]
 RUN curl -fsSLo /kubectl "https://dl.k8s.io/release/v${KUBECTL_VERSION}/bin/${TARGETOS}/${TARGETARCH}/kubectl" \
  && curl -fsSLo /kubectl.sha256 "https://dl.k8s.io/release/v${KUBECTL_VERSION}/bin/${TARGETOS}/${TARGETARCH}/kubectl.sha256" \
