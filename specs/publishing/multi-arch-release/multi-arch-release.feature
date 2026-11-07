@@ -19,7 +19,7 @@ Feature: Releasing multi-architecture kubectl images
       | 1.33.13 |
 
   @id:publishing.multi-arch-release.002 @rule:kubectl-image.version.default-version-when-unspecified @inferred @source:Makefile#VERSION
-  Scenario: Without a chosen version the commands use kubectl 1.34.10
+  Scenario: Without a chosen version a release publishes kubectl 1.34.10
     Given no kubectl version is chosen
     When the maintainer releases the image
     Then the published tags are 1.34.10 and latest

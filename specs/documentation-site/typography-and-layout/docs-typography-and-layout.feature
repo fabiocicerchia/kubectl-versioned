@@ -31,8 +31,8 @@ Feature: Presenting the documentation without network-loaded assets
 
   @id:documentation-site.typography-and-layout.004 @rule:documentation-site.typography-and-layout.tables-as-rounded-cards @inferred @source:docs/stylesheets/extra.css#.md-typeset table:not([class]) @questionable
   Scenario: Plain tables appear as rounded, bordered cards with compact uppercase headers
-    Given a docs page contains a plain Markdown table wider than a narrow screen
-    When a reader views the page on a narrow screen
+    Given a docs page contains a plain Markdown table
+    When a reader views the page
     Then the table has rounded corners and a hairline border
     And its header cells are uppercase, in small semi-bold text
-    And overflow outside the table's own box is hidden
+    And the table's contents are clipped to its rounded corners

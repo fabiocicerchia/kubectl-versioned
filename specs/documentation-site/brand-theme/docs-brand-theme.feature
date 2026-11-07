@@ -10,7 +10,7 @@ Feature: Keeping the documentation on one brand palette
     Given the site accent pair is sky blue #38bdf8 and blue #3b82f6
     When a reader opens the splash page and then the docs
     Then the splash title and its main button are drawn in a #38bdf8 to #3b82f6 gradient
-    And the docs header, primary colour and links use #3b82f6
+    And the docs primary colour, and links in light mode, use #3b82f6
     And the docs interactive accent uses #38bdf8
 
   @id:documentation-site.brand-theme.002 @rule:documentation-site.brand-theme.links-legible-per-scheme @inferred @source:docs/stylesheets/extra.css#[data-md-color-scheme="slate"]
