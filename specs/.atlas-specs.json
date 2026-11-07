@@ -1,0 +1,617 @@
+{
+ "excluded": {
+  "docs/stylesheets": [
+   {
+    "candidate": "Translucent, blurred header and tabs with a hairline divider and a shadow on scroll",
+    "covered_by": "",
+    "reason": "TRIVIAL",
+    "source": "docs/stylesheets/extra.css#.md-header"
+   },
+   {
+    "candidate": "Heading weights, letter-spacing and the ligature/kerning feature settings",
+    "covered_by": "",
+    "reason": "TRIVIAL",
+    "source": "docs/stylesheets/extra.css#.md-typeset h1"
+   },
+   {
+    "candidate": "Rounded, bordered code blocks",
+    "covered_by": "",
+    "reason": "TRIVIAL",
+    "source": "docs/stylesheets/extra.css#.md-typeset .highlight"
+   },
+   {
+    "candidate": "Button hover lift and transition timing",
+    "covered_by": "",
+    "reason": "INTERNAL_MECHANISM",
+    "source": "docs/stylesheets/extra.css#.md-typeset .md-button:hover"
+   },
+   {
+    "candidate": "Nav title and active link weights; tab link opacity",
+    "covered_by": "",
+    "reason": "TRIVIAL",
+    "source": "docs/stylesheets/extra.css#.md-nav__title"
+   },
+   {
+    "candidate": "Footer background, border and muted link colour",
+    "covered_by": "",
+    "reason": "TRIVIAL",
+    "source": "docs/stylesheets/extra.css#.md-footer-meta"
+   },
+   {
+    "candidate": "Smooth scrolling for in-page anchors",
+    "covered_by": "",
+    "reason": "TRIVIAL",
+    "source": "docs/stylesheets/extra.css#html"
+   },
+   {
+    "candidate": "Hero button spacing between adjacent buttons",
+    "covered_by": "documentation-site.typography-and-layout.hero-gradient-title",
+    "reason": "DUPLICATE_OF",
+    "source": "docs/stylesheets/extra.css#.md-typeset .hero .md-button + .md-button"
+   },
+   {
+    "candidate": "Material primary/accent CSS variables mapped from the accent pair",
+    "covered_by": "documentation-site.brand-theme.single-shared-accent-pair",
+    "reason": "DUPLICATE_OF",
+    "source": "docs/stylesheets/extra.css#:root"
+   }
+  ],
+  "kubectl-versioned/dockerfile": [
+   {
+    "candidate": "Alpine and distroless base images pinned by sha256 digest",
+    "covered_by": "",
+    "reason": "TECH_BUILD",
+    "source": "Dockerfile#FROM"
+   },
+   {
+    "candidate": "curl and ca-certificates apk packages pinned to exact versions",
+    "covered_by": "",
+    "reason": "TECH_BUILD",
+    "source": "Dockerfile#fetch"
+   },
+   {
+    "candidate": "pipefail shell used for the download step",
+    "covered_by": "kubectl-image.version.unpublished-version-refused",
+    "reason": "INTERNAL_MECHANISM",
+    "source": "Dockerfile#SHELL"
+   },
+   {
+    "candidate": "Binary installed at /usr/local/bin/kubectl with mode 0755",
+    "covered_by": "",
+    "reason": "INTERNAL_MECHANISM",
+    "source": "Dockerfile#fetch"
+   },
+   {
+    "candidate": "HEALTHCHECK NONE declared because kubectl is a CLI",
+    "covered_by": "",
+    "reason": "TRIVIAL",
+    "source": "Dockerfile#HEALTHCHECK"
+   },
+   {
+    "candidate": "Two-stage build (fetch stage then runtime stage)",
+    "covered_by": "security.runtime.no-shell-or-package-manager",
+    "reason": "TECH_BUILD",
+    "source": "Dockerfile"
+   },
+   {
+    "candidate": "OCI description label text",
+    "covered_by": "kubectl-image.metadata.oci-labels",
+    "reason": "TRIVIAL",
+    "source": "Dockerfile#LABEL"
+   },
+   {
+    "candidate": "The image contains no shell or package manager",
+    "covered_by": "",
+    "reason": "UNVERIFIABLE",
+    "source": "Dockerfile#runtime-stage"
+   }
+  ],
+  "kubectl-versioned/install": [
+   {
+    "candidate": "Image is always fetched from ghcr.io/fabiocicerchia/kubectl-versioned",
+    "covered_by": "getting-started.install.pulls-requested-or-latest-version",
+    "reason": "INTERNAL_MECHANISM",
+    "source": "install.sh#IMAGE"
+   },
+   {
+    "candidate": "Unset variables and pipeline failures abort the script (set -u, pipefail)",
+    "covered_by": "",
+    "reason": "INTERNAL_MECHANISM",
+    "source": "install.sh#VERSION"
+   },
+   {
+    "candidate": "Blank line printed between pull output and ready message",
+    "covered_by": "",
+    "reason": "TRIVIAL",
+    "source": "install.sh#IMAGE"
+   }
+  ],
+  "kubectl-versioned/makefile": [
+   {
+    "candidate": "make build builds a single-arch image tagged IMAGE:VERSION with host networking",
+    "covered_by": "",
+    "reason": "TECH_BUILD",
+    "source": "Makefile#build"
+   },
+   {
+    "candidate": "make push builds then pushes a single-arch image",
+    "covered_by": "",
+    "reason": "TECH_BUILD",
+    "source": "Makefile#push"
+   },
+   {
+    "candidate": "make test builds the image then runs ./test.sh against it",
+    "covered_by": "",
+    "reason": "TECH_DEVTOOLING",
+    "source": "Makefile#test"
+   },
+   {
+    "candidate": "make lint runs every pre-commit hook on all files",
+    "covered_by": "",
+    "reason": "TECH_DEVTOOLING",
+    "source": "Makefile#lint"
+   },
+   {
+    "candidate": "make setup installs the pre-commit hook",
+    "covered_by": "",
+    "reason": "TECH_DEVTOOLING",
+    "source": "Makefile#setup"
+   },
+   {
+    "candidate": "make format runs whitespace/EOF/line-ending fixers and ignores their non-zero exits",
+    "covered_by": "",
+    "reason": "TECH_DEVTOOLING",
+    "source": "Makefile#format"
+   },
+   {
+    "candidate": "make install pulls IMAGE:VERSION from the registry",
+    "covered_by": "",
+    "reason": "TECH_BUILD",
+    "source": "Makefile#install"
+   },
+   {
+    "candidate": "IMAGE and PLATFORMS are overridable variables",
+    "covered_by": "",
+    "reason": "INTERNAL_MECHANISM",
+    "source": "Makefile#IMAGE"
+   },
+   {
+    "candidate": "run rebuilds the image before running kubectl",
+    "covered_by": "",
+    "reason": "INTERNAL_MECHANISM",
+    "source": "Makefile#run"
+   }
+  ]
+ },
+ "lifted": {
+  "docs/stylesheets": [],
+  "kubectl-versioned/dockerfile": [
+   {
+    "from_source": "Dockerfile#fetch",
+    "rule": "kubectl-image.binary.checksum-must-match"
+   },
+   {
+    "from_source": "Dockerfile#fetch",
+    "rule": "kubectl-image.version.unpublished-version-refused"
+   },
+   {
+    "from_source": "Dockerfile#USER",
+    "rule": "security.runtime.runs-as-uid-65532"
+   },
+   {
+    "from_source": "Dockerfile#runtime-stage",
+    "rule": "security.runtime.no-shell-or-package-manager"
+   }
+  ],
+  "kubectl-versioned/install": [],
+  "kubectl-versioned/makefile": [
+   {
+    "from_source": "Makefile#run",
+    "rule": "getting-started.cluster-access.kubeconfig-mounted-read-only"
+   },
+   {
+    "from_source": "Makefile#analyze",
+    "rule": "security.scanning.refused-without-scanner"
+   }
+  ]
+ },
+ "retired": [],
+ "scenarios": {
+  "developer-tooling.command-catalogue.001": {
+   "file": "specs/developer-tooling/command-catalogue/make-command-catalogue.feature",
+   "fingerprint": "517de792f113",
+   "human": false,
+   "rule": "developer-tooling.catalogue.help-is-default",
+   "source": "Makefile#help",
+   "status": "inferred",
+   "test": "",
+   "tests": []
+  },
+  "documentation-site.brand-theme.001": {
+   "file": "specs/documentation-site/brand-theme/docs-brand-theme.feature",
+   "fingerprint": "564588beee72",
+   "human": false,
+   "rule": "documentation-site.brand-theme.single-shared-accent-pair",
+   "source": "docs/stylesheets/extra.css#:root",
+   "status": "inferred",
+   "test": "",
+   "tests": []
+  },
+  "documentation-site.brand-theme.002": {
+   "file": "specs/documentation-site/brand-theme/docs-brand-theme.feature",
+   "fingerprint": "433084a194b6",
+   "human": false,
+   "rule": "documentation-site.brand-theme.links-legible-per-scheme",
+   "source": "docs/stylesheets/extra.css#[data-md-color-scheme=\"slate\"]",
+   "status": "inferred",
+   "test": "",
+   "tests": []
+  },
+  "documentation-site.brand-theme.003": {
+   "file": "specs/documentation-site/brand-theme/docs-brand-theme.feature",
+   "fingerprint": "c702704e5aae",
+   "human": false,
+   "rule": "documentation-site.brand-theme.no-placeholder-logo",
+   "source": "docs/stylesheets/extra.css#.md-header__button.md-logo",
+   "status": "inferred",
+   "test": "",
+   "tests": []
+  },
+  "documentation-site.typography-and-layout.001": {
+   "file": "specs/documentation-site/typography-and-layout/docs-typography-and-layout.feature",
+   "fingerprint": "564588beee72",
+   "human": false,
+   "rule": "documentation-site.typography-and-layout.no-network-fonts",
+   "source": "docs/stylesheets/extra.css#:root",
+   "status": "inferred",
+   "test": "",
+   "tests": []
+  },
+  "documentation-site.typography-and-layout.002": {
+   "file": "specs/documentation-site/typography-and-layout/docs-typography-and-layout.feature",
+   "fingerprint": "795e359e9240",
+   "human": false,
+   "rule": "documentation-site.typography-and-layout.hero-gradient-title",
+   "source": "docs/stylesheets/extra.css#.md-typeset .hero",
+   "status": "inferred",
+   "test": "",
+   "tests": []
+  },
+  "documentation-site.typography-and-layout.003": {
+   "file": "specs/documentation-site/typography-and-layout/docs-typography-and-layout.feature",
+   "fingerprint": "9606b3669194",
+   "human": false,
+   "rule": "documentation-site.typography-and-layout.feature-cards-respond-to-hover",
+   "source": "docs/stylesheets/extra.css#.md-typeset .grid.cards > ul > li",
+   "status": "inferred",
+   "test": "",
+   "tests": []
+  },
+  "documentation-site.typography-and-layout.004": {
+   "file": "specs/documentation-site/typography-and-layout/docs-typography-and-layout.feature",
+   "fingerprint": "721086d36c47",
+   "human": false,
+   "rule": "documentation-site.typography-and-layout.tables-as-rounded-cards",
+   "source": "docs/stylesheets/extra.css#.md-typeset table:not([class])",
+   "status": "inferred",
+   "test": "",
+   "tests": []
+  },
+  "getting-started.cluster-access.001": {
+   "file": "specs/getting-started/cluster-access/cluster-access-from-image.feature",
+   "fingerprint": "f7b528037553",
+   "human": false,
+   "rule": "getting-started.cluster-access.kubeconfig-mounted-read-only",
+   "source": "Makefile#run",
+   "status": "inferred",
+   "test": "",
+   "tests": []
+  },
+  "getting-started.one-line-install.001": {
+   "file": "specs/getting-started/one-line-install/one-line-install.feature",
+   "fingerprint": "c0dd447c2d78",
+   "human": false,
+   "rule": "getting-started.install.pulls-requested-or-latest-version",
+   "source": "install.sh#VERSION",
+   "status": "inferred",
+   "test": "",
+   "tests": []
+  },
+  "getting-started.one-line-install.002": {
+   "file": "specs/getting-started/one-line-install/one-line-install.feature",
+   "fingerprint": "85393698f0e5",
+   "human": false,
+   "rule": "getting-started.install.prints-example-usage",
+   "source": "install.sh#IMAGE",
+   "status": "inferred",
+   "test": "",
+   "tests": []
+  },
+  "getting-started.one-line-install.003": {
+   "file": "specs/getting-started/one-line-install/one-line-install.feature",
+   "fingerprint": "c0dd447c2d78",
+   "human": false,
+   "rule": "getting-started.install.stops-when-pull-fails",
+   "source": "install.sh#VERSION",
+   "status": "inferred",
+   "test": "",
+   "tests": []
+  },
+  "kubectl-image.binary-acquisition.001": {
+   "file": "specs/kubectl-image/binary-acquisition/kubectl-binary-verification.feature",
+   "fingerprint": "64a6ee18aa02",
+   "human": false,
+   "rule": "kubectl-image.binary.checksum-must-match",
+   "source": "Dockerfile#fetch",
+   "status": "inferred",
+   "test": "",
+   "tests": []
+  },
+  "kubectl-image.binary-acquisition.002": {
+   "file": "specs/kubectl-image/binary-acquisition/kubectl-binary-verification.feature",
+   "fingerprint": "64a6ee18aa02",
+   "human": false,
+   "rule": "kubectl-image.binary.matches-target-platform",
+   "source": "Dockerfile#fetch",
+   "status": "inferred",
+   "test": "",
+   "tests": []
+  },
+  "kubectl-image.image-metadata.001": {
+   "file": "specs/kubectl-image/image-metadata/kubectl-image-metadata.feature",
+   "fingerprint": "234a43a1a042",
+   "human": false,
+   "rule": "kubectl-image.metadata.oci-labels",
+   "source": "Dockerfile#LABEL",
+   "status": "inferred",
+   "test": "",
+   "tests": []
+  },
+  "kubectl-image.image-metadata.002": {
+   "file": "specs/kubectl-image/image-metadata/kubectl-image-metadata.feature",
+   "fingerprint": "52367a4570da",
+   "human": false,
+   "rule": "kubectl-image.metadata.notice-bundled",
+   "source": "Dockerfile#COPY",
+   "status": "inferred",
+   "test": "",
+   "tests": []
+  },
+  "kubectl-image.runtime-behaviour.001": {
+   "file": "specs/kubectl-image/runtime-behaviour/kubectl-runtime.feature",
+   "fingerprint": "2d82ba3f9beb",
+   "human": false,
+   "rule": "kubectl-image.runtime.default-prints-client-version",
+   "source": "Dockerfile#CMD",
+   "status": "inferred",
+   "test": "",
+   "tests": []
+  },
+  "kubectl-image.runtime-behaviour.002": {
+   "file": "specs/kubectl-image/runtime-behaviour/kubectl-runtime.feature",
+   "fingerprint": "2469bd7b2384",
+   "human": false,
+   "rule": "kubectl-image.runtime.arguments-go-to-kubectl",
+   "source": "Dockerfile#ENTRYPOINT",
+   "status": "inferred",
+   "test": "",
+   "tests": []
+  },
+  "kubectl-image.version-selection.001": {
+   "file": "specs/kubectl-image/version-selection/kubectl-version-selection.feature",
+   "fingerprint": "64a6ee18aa02",
+   "human": false,
+   "rule": "kubectl-image.version.image-carries-requested-version",
+   "source": "Dockerfile#fetch",
+   "status": "inferred",
+   "test": "",
+   "tests": []
+  },
+  "kubectl-image.version-selection.002": {
+   "file": "specs/kubectl-image/version-selection/kubectl-version-selection.feature",
+   "fingerprint": "64a6ee18aa02",
+   "human": false,
+   "rule": "kubectl-image.version.unpublished-version-refused",
+   "source": "Dockerfile#fetch",
+   "status": "inferred",
+   "test": "",
+   "tests": []
+  },
+  "publishing.multi-arch-release.001": {
+   "file": "specs/publishing/multi-arch-release/multi-arch-release.feature",
+   "fingerprint": "d625b7dc5fd0",
+   "human": false,
+   "rule": "publishing.release.version-and-latest-tags-for-amd64-and-arm64",
+   "source": "Makefile#release",
+   "status": "inferred",
+   "test": "",
+   "tests": []
+  },
+  "publishing.multi-arch-release.002": {
+   "file": "specs/publishing/multi-arch-release/multi-arch-release.feature",
+   "fingerprint": "456595eec923",
+   "human": false,
+   "rule": "kubectl-image.version.default-version-when-unspecified",
+   "source": "Makefile#VERSION",
+   "status": "inferred",
+   "test": "",
+   "tests": []
+  },
+  "security-hardening.non-root-execution.001": {
+   "file": "specs/security-hardening/non-root-execution/non-root-kubectl.feature",
+   "fingerprint": "4f81d34124ee",
+   "human": false,
+   "rule": "security.runtime.runs-as-uid-65532",
+   "source": "Dockerfile#USER",
+   "status": "inferred",
+   "test": "",
+   "tests": []
+  },
+  "security-hardening.security-scanning.001": {
+   "file": "specs/security-hardening/security-scanning/source-security-scan.feature",
+   "fingerprint": "eee6cffaed8d",
+   "human": false,
+   "rule": "security.scanning.critical-and-high-vuln-misconfig-secret",
+   "source": "Makefile#analyze",
+   "status": "inferred",
+   "test": "",
+   "tests": []
+  },
+  "security-hardening.security-scanning.002": {
+   "file": "specs/security-hardening/security-scanning/source-security-scan.feature",
+   "fingerprint": "eee6cffaed8d",
+   "human": false,
+   "rule": "security.scanning.refused-without-scanner",
+   "source": "Makefile#analyze",
+   "status": "inferred",
+   "test": "",
+   "tests": []
+  }
+ },
+ "taxonomy": {
+  "domains": [
+   {
+    "areas": [
+     {
+      "description": "Choosing which Kubernetes/kubectl version an image carries, with a default when none is given.",
+      "slug": "version-selection",
+      "title": "Version selection"
+     },
+     {
+      "description": "Fetching the kubectl binary for the target OS and architecture from the official source and checking its SHA-256 checksum.",
+      "slug": "binary-acquisition",
+      "title": "Binary download and verification"
+     },
+     {
+      "description": "How the image runs: kubectl as the entrypoint, the default client-version command, and no health check because it is a CLI.",
+      "slug": "runtime-behaviour",
+      "title": "Runtime behaviour"
+     },
+     {
+      "description": "OCI labels describing title, version, licence and source, plus the bundled NOTICE file.",
+      "slug": "image-metadata",
+      "title": "Image metadata and licensing"
+     }
+    ],
+    "description": "The container image that delivers a plain upstream kubectl at a chosen Kubernetes version.",
+    "slug": "kubectl-image",
+    "title": "kubectl Image"
+   },
+   {
+    "areas": [
+     {
+      "description": "Shipping kubectl on a distroless base with no shell or package manager.",
+      "slug": "minimal-runtime",
+      "title": "Minimal distroless runtime"
+     },
+     {
+      "description": "Running kubectl as the unprivileged UID 65532 user.",
+      "slug": "non-root-execution",
+      "title": "Non-root execution"
+     },
+     {
+      "description": "Base images pinned by digest and build packages pinned to exact versions.",
+      "slug": "pinned-inputs",
+      "title": "Pinned build inputs"
+     },
+     {
+      "description": "Scanning the source tree for vulnerabilities, misconfigurations and leaked secrets.",
+      "slug": "security-scanning",
+      "title": "Security scanning"
+     }
+    ],
+    "description": "Guarantees that the published image is minimal, locked down and built from trusted, pinned inputs.",
+    "slug": "security-hardening",
+    "title": "Security & Supply Chain"
+   },
+   {
+    "areas": [
+     {
+      "description": "A curl-pipe installer that pulls a chosen (or latest) image version and prints example usage.",
+      "slug": "one-line-install",
+      "title": "One-line install"
+     },
+     {
+      "description": "Fetching a specific published version of the image onto a machine.",
+      "slug": "pulling-images",
+      "title": "Pulling published images"
+     },
+     {
+      "description": "Running kubectl from the image with the local kubeconfig mounted read-only.",
+      "slug": "cluster-access",
+      "title": "Using kubectl with your cluster"
+     }
+    ],
+    "description": "How a user obtains the image and starts using kubectl against their clusters.",
+    "slug": "getting-started",
+    "title": "Getting Started"
+   },
+   {
+    "areas": [
+     {
+      "description": "Building a single-architecture image for a given version on a developer machine.",
+      "slug": "single-arch-build",
+      "title": "Local image build"
+     },
+     {
+      "description": "Building and pushing amd64 and arm64 images tagged with the version and latest.",
+      "slug": "multi-arch-release",
+      "title": "Multi-arch release"
+     },
+     {
+      "description": "Pushing a built single-arch image to the container registry.",
+      "slug": "registry-push",
+      "title": "Registry push"
+     }
+    ],
+    "description": "Building and distributing the image to the container registry for each supported version.",
+    "slug": "publishing",
+    "title": "Publishing & Releases"
+   },
+   {
+    "areas": [
+     {
+      "description": "A self-documenting help listing of every available make command, shown by default.",
+      "slug": "command-catalogue",
+      "title": "Command catalogue"
+     },
+     {
+      "description": "Installing the pre-commit hook that gates commits.",
+      "slug": "contributor-setup",
+      "title": "Contributor setup"
+     },
+     {
+      "description": "Running every quality gate and auto-fixing whitespace, line endings and final newlines.",
+      "slug": "linting-and-formatting",
+      "title": "Linting and formatting"
+     },
+     {
+      "description": "Building the image and running a smoke test to confirm kubectl works.",
+      "slug": "smoke-testing",
+      "title": "Smoke testing"
+     }
+    ],
+    "description": "The commands contributors use to set up, check and test the project locally.",
+    "slug": "developer-tooling",
+    "title": "Developer Tooling"
+   },
+   {
+    "areas": [
+     {
+      "description": "A single accent colour pair shared by the docs and splash page so they stay visually consistent.",
+      "slug": "brand-theme",
+      "title": "Brand theme and palette"
+     },
+     {
+      "description": "System fonts, gradient accents, soft depth and feature cards with no network-loaded assets.",
+      "slug": "typography-and-layout",
+      "title": "Typography and layout"
+     }
+    ],
+    "description": "The look and feel of the project's documentation website and landing page.",
+    "slug": "documentation-site",
+    "title": "Documentation Site"
+   }
+  ]
+ }
+}
