@@ -1,5 +1,11 @@
 # kubectl-versioned
 
+> [!WARNING]
+> **This project is retired** and no longer maintained. The Kubernetes project
+> publishes its own kubectl image, built from [this
+> Dockerfile](https://github.com/kubernetes/kubernetes/blob/master/build/server-image/kubectl/Dockerfile)
+> and tagged by kubectl version as `registry.k8s.io/kubectl`; use that instead.
+
 [![CI](https://github.com/fabiocicerchia/kubectl-versioned/actions/workflows/ci.yml/badge.svg)](https://github.com/fabiocicerchia/kubectl-versioned/actions/workflows/ci.yml)
 [![Security](https://github.com/fabiocicerchia/kubectl-versioned/actions/workflows/security.yml/badge.svg)](https://github.com/fabiocicerchia/kubectl-versioned/actions/workflows/security.yml)
 [![License: Apache 2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
